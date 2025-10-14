@@ -1,8 +1,9 @@
 # Tingly
 
 <p align="center">
-  <img src="./public/repoImages/landing.png" alt="Tingly Landing Page" width="100%" style="border-radius: 12px;"/>
+  <img src="https://github.com/Pallepadehat/tingly/blob/main/public/repoImages/landingpage.png" alt="Tingly Landing Page" width="100%" style="border-radius: 12px;"/>
 </p>
+
 
 ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Pallepadehat/tingly?utm_source=oss&utm_medium=github&utm_campaign=Pallepadehat%2Ftingly&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
