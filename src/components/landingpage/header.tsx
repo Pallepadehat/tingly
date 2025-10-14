@@ -7,10 +7,10 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "Features", href: "#link" },
-  { name: "Solution", href: "#link" },
-  { name: "Pricing", href: "#link" },
-  { name: "About", href: "#link" },
+  { name: "Product", href: "#capabilities" },
+  { name: "Security", href: "#stats" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "FAQs", href: "#faqs" },
 ];
 
 export const HeroHeader = () => {
@@ -32,9 +32,9 @@ export const HeroHeader = () => {
       >
         <div
           className={cn(
-            "mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12",
+            "mx-auto mt-3 max-w-6xl rounded-full border border-transparent bg-background/30 px-6 backdrop-blur transition-all duration-300 lg:px-12",
             isScrolled &&
-              "bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5"
+              "bg-background/80 border-border/40 shadow-lg shadow-primary/5 lg:px-8"
           )}
         >
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-3 lg:gap-0 lg:py-4">
@@ -42,7 +42,7 @@ export const HeroHeader = () => {
               <Link
                 href="/"
                 aria-label="home"
-                className="flex items-center space-x-2 font-bold"
+                className="flex items-center gap-2 text-lg font-semibold"
               >
                 <Image
                   src="/icons/Logo.svg"
@@ -50,7 +50,7 @@ export const HeroHeader = () => {
                   width={30}
                   height={30}
                 />
-                Tingly
+                <span className="tracking-tight">Tingly</span>
               </Link>
 
               <button
@@ -69,7 +69,7 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
-                      className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                      className="text-muted-foreground hover:text-foreground block duration-150"
                     >
                       <span>{item.name}</span>
                     </Link>
@@ -78,14 +78,14 @@ export const HeroHeader = () => {
               </ul>
             </div>
 
-            <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-zinc-300/20 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none dark:lg:bg-transparent">
+            <div className="bg-background in-data-[state=active]:block lg:in-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border p-6 shadow-2xl shadow-primary/10 md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none dark:shadow-none">
               <div className="lg:hidden">
                 <ul className="space-y-6 text-base">
                   {menuItems.map((item, index) => (
                     <li key={index}>
                       <Link
                         href={item.href}
-                        className="text-muted-foreground hover:text-accent-foreground block duration-150"
+                        className="text-muted-foreground hover:text-primary block duration-150"
                       >
                         <span>{item.name}</span>
                       </Link>
@@ -101,7 +101,7 @@ export const HeroHeader = () => {
                   className={cn(isScrolled && "lg:hidden")}
                 >
                   <Link href="#">
-                    <span>Login</span>
+                    <span>Sign in</span>
                   </Link>
                 </Button>
                 <Button
@@ -109,8 +109,8 @@ export const HeroHeader = () => {
                   size="sm"
                   className={cn(isScrolled && "lg:hidden")}
                 >
-                  <Link href="#">
-                    <span>Sign Up</span>
+                  <Link href="#pricing">
+                    <span>Start free</span>
                   </Link>
                 </Button>
                 <Button
@@ -118,8 +118,8 @@ export const HeroHeader = () => {
                   size="sm"
                   className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
                 >
-                  <Link href="#">
-                    <span>Get Started</span>
+                  <Link href="#pricing">
+                    <span>Get started</span>
                   </Link>
                 </Button>
               </div>

@@ -1,239 +1,100 @@
-import { Button } from '@/components/ui/button'
-import { Cpu, Sparkles } from 'lucide-react'
-import Link from 'next/link'
+import { Button } from "@/components/ui/button";
+import { Check } from "lucide-react";
+import Link from "next/link";
 
-const tableData = [
-    {
-        feature: 'Feature 1',
-        free: true,
-        pro: true,
-        startup: true,
-    },
-    {
-        feature: 'Feature 2',
-        free: true,
-        pro: true,
-        startup: true,
-    },
-    {
-        feature: 'Feature 3',
-        free: false,
-        pro: true,
-        startup: true,
-    },
-    {
-        feature: 'Tokens',
-        free: '',
-        pro: '20 Users',
-        startup: 'Unlimited',
-    },
-    {
-        feature: 'Video calls',
-        free: '',
-        pro: '12 Weeks',
-        startup: '56',
-    },
-    {
-        feature: 'Support',
-        free: '',
-        pro: 'Secondes',
-        startup: 'Unlimited',
-    },
-    {
-        feature: 'Security',
-        free: '',
-        pro: '20 Users',
-        startup: 'Unlimited',
-    },
-]
+type FeatureRow = {
+  feature: string;
+  free: string | boolean;
+  pro: string | boolean;
+  family: string | boolean;
+};
+
+const featureMatrix: FeatureRow[] = [
+  { feature: "Items you can store", free: "Up to 25", pro: "Unlimited", family: "Unlimited" },
+  { feature: "Rooms & categories", free: "All rooms", pro: "All rooms", family: "All rooms" },
+  { feature: "Photos & receipts", free: true, pro: true, family: true },
+  { feature: "Smart receipt reading", free: false, pro: true, family: true },
+  { feature: "Automatic cloud backup", free: false, pro: true, family: true },
+  { feature: "Insurance PDFs", free: "1 / month", pro: "Unlimited", family: "Unlimited" },
+  { feature: "Invite other people", free: false, pro: false, family: "Up to 4" },
+  { feature: "Shared family view", free: false, pro: false, family: true },
+  { feature: "Secure cloud sync", free: true, pro: true, family: true },
+  { feature: "Google / Apple sign-in", free: true, pro: true, family: true },
+  { feature: "Priority support", free: false, pro: true, family: true },
+  { feature: "Early feature access", free: false, pro: true, family: true },
+  { feature: "Self-host option", free: true, pro: true, family: true },
+];
+
+const planSummaries = [
+  { plan: "Free", price: "0 kr / mo", description: "For personal use" },
+  { plan: "Pro", price: "49 kr / mo", description: "For individuals who want full control" },
+  { plan: "Family", price: "89 kr / mo", description: "For shared homes or small households" },
+];
+
+const renderCell = (value: FeatureRow["free"]) => {
+  if (value === true || value === false) {
+    return value ? <Check className="size-4 text-primary" /> : <span className="text-muted-foreground">—</span>;
+  }
+  return <span>{value}</span>;
+};
 
 export default function PricingComparator() {
-    return (
-        <section className="py-16 md:py-32">
-            <div className="mx-auto max-w-5xl px-6">
-                <div className="w-full overflow-auto lg:overflow-visible">
-                    <table className="w-[200vw] border-separate border-spacing-x-3 md:w-full dark:[--color-muted:var(--color-zinc-900)]">
-                        <thead className="bg-background sticky top-0">
-                            <tr className="*:py-4 *:text-left *:font-medium">
-                                <th className="lg:w-2/5"></th>
-                                <th className="space-y-3">
-                                    <span className="block">Free</span>
+  return (
+    <section className="py-16 md:py-32" aria-labelledby="pricing-comparison-heading" id="comparison">
+      <div className="mx-auto max-w-5xl space-y-12 px-6">
+        <div className="space-y-4 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Compare</p>
+          <h2 id="pricing-comparison-heading" className="text-4xl font-semibold md:text-5xl">
+            Pick the plan that fits.
+          </h2>
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+            Free covers the basics. Pro adds smart help. Family keeps every room in sync.
+          </p>
+        </div>
 
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        size="sm">
-                                        <Link href="#">Get Started</Link>
-                                    </Button>
-                                </th>
-                                <th className="bg-muted rounded-t-(--radius) space-y-3 px-4">
-                                    <span className="block">Pro</span>
-                                    <Button
-                                        asChild
-                                        size="sm">
-                                        <Link href="#">Get Started</Link>
-                                    </Button>
-                                </th>
-                                <th className="space-y-3">
-                                    <span className="block">Startup</span>
-                                    <Button
-                                        asChild
-                                        variant="outline"
-                                        size="sm">
-                                        <Link href="#">Get Started</Link>
-                                    </Button>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody className="text-caption text-sm">
-                            <tr className="*:py-3">
-                                <td className="flex items-center gap-2 font-medium">
-                                    <Cpu className="size-4" />
-                                    <span>Features</span>
-                                </td>
-                                <td></td>
-                                <td className="bg-muted border-none px-4"></td>
-                                <td></td>
-                            </tr>
-                            {tableData.slice(-4).map((row, index) => (
-                                <tr
-                                    key={index}
-                                    className="*:border-b *:py-3">
-                                    <td className="text-muted-foreground">{row.feature}</td>
-                                    <td>
-                                        {row.free === true ? (
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                className="size-4">
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        ) : (
-                                            row.free
-                                        )}
-                                    </td>
-                                    <td className="bg-muted border-none px-4">
-                                        <div className="-mb-3 border-b py-3">
-                                            {row.pro === true ? (
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 24 24"
-                                                    fill="currentColor"
-                                                    className="size-4">
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
-                                            ) : (
-                                                row.pro
-                                            )}
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {row.startup === true ? (
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                className="size-4">
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        ) : (
-                                            row.startup
-                                        )}
-                                    </td>
-                                </tr>
-                            ))}
-                            <tr className="*:pb-3 *:pt-8">
-                                <td className="flex items-center gap-2 font-medium">
-                                    <Sparkles className="size-4" />
-                                    <span>AI Models</span>
-                                </td>
-                                <td></td>
-                                <td className="bg-muted border-none px-4"></td>
-                                <td></td>
-                            </tr>
-                            {tableData.map((row, index) => (
-                                <tr
-                                    key={index}
-                                    className="*:border-b *:py-3">
-                                    <td className="text-muted-foreground">{row.feature}</td>
-                                    <td>
-                                        {row.free === true ? (
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                className="size-4">
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        ) : (
-                                            row.free
-                                        )}
-                                    </td>
-                                    <td className="bg-muted border-none px-4">
-                                        <div className="-mb-3 border-b py-3">
-                                            {row.pro === true ? (
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    viewBox="0 0 24 24"
-                                                    fill="currentColor"
-                                                    className="size-4">
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                        clipRule="evenodd"
-                                                    />
-                                                </svg>
-                                            ) : (
-                                                row.pro
-                                            )}
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {row.startup === true ? (
-                                            <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                fill="currentColor"
-                                                className="size-4">
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        ) : (
-                                            row.startup
-                                        )}
-                                    </td>
-                                </tr>
-                            ))}
-                            <tr className="*:py-6">
-                                <td></td>
-                                <td></td>
-                                <td className="bg-muted rounded-b-(--radius) border-none px-4"></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
-    )
+        <div className="w-full overflow-x-auto">
+          <div className="overflow-hidden rounded-3xl border border-border/50 bg-background/90 shadow-lg">
+            <table className="w-full min-w-[720px] border-separate border-spacing-y-1 text-sm">
+              <thead className="bg-background/95 text-left text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                <tr>
+                  <th className="p-4 font-semibold text-muted-foreground/80">Feature</th>
+                  {planSummaries.map((plan, index) => (
+                    <th key={plan.plan} className={`p-4 align-bottom ${index !== 0 ? "border-l border-border/40" : ""}`}>
+                      <div className="text-xs font-medium uppercase tracking-[0.2em] text-primary/70">{plan.plan}</div>
+                      <div className="text-2xl font-semibold text-foreground">{plan.price}</div>
+                      <div className="mt-1 text-xs text-muted-foreground">{plan.description}</div>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {featureMatrix.map((row) => (
+                  <tr key={row.feature} className="rounded-xl bg-background/70">
+                    <th scope="row" className="p-4 text-left text-sm font-medium text-foreground">
+                      {row.feature}
+                    </th>
+                    {[row.free, row.pro, row.family].map((value, index) => (
+                      <td
+                        key={index}
+                        className={`p-4 text-center align-middle text-foreground/90 ${index !== 0 ? "border-l border-border/30" : ""}`}
+                      >
+                        {renderCell(value)}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
+          <Button asChild variant="outline" size="sm" className="rounded-full border-primary/40 text-primary">
+            <Link href="#">Self-host guide</Link>
+          </Button>
+          <span>Need more seats? Reach out and we’ll tailor a plan.</span>
+        </div>
+      </div>
+    </section>
+  );
 }
