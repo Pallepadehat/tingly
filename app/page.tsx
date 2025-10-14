@@ -1,9 +1,10 @@
-import Image from "next/image";
+import { caller } from "@/trpc/server";
 
-export default function Home() {
+export default async function Home() {
+  const users = await caller.getUsers();
   return (
     <div>
-      <h1>Hello World</h1>
+      <h1>{users.map((user) => user.name)}</h1>
     </div>
   );
 }
