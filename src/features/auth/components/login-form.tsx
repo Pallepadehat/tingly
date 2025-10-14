@@ -25,6 +25,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const loginSchema = z.object({
   email: z.email("Please enter a valid email address"),
@@ -82,9 +83,7 @@ export function LoginForm() {
                     type="button"
                     disabled={isPending}
                   >
-                    {
-                      isPending ? <Spinner className="size-4" /> : null // TODO: Add google icon here
-                    }
+                    <FaGithub size={20} />
                     Continue with Github
                   </Button>
 
@@ -94,9 +93,7 @@ export function LoginForm() {
                     type="button"
                     disabled={isPending}
                   >
-                    {
-                      isPending ? <Spinner className="size-4" /> : null // TODO: Add google icon here
-                    }
+                    <FaGoogle size={20} />
                     Continue with Google
                   </Button>
                 </div>

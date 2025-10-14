@@ -30,6 +30,7 @@ import {
   uniqueNamesGenerator,
 } from "unique-names-generator";
 import { z } from "zod";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const RegisterSchema = z
   .object({
@@ -102,9 +103,7 @@ export function RegisterForm() {
                     type="button"
                     disabled={isPending}
                   >
-                    {
-                      isPending ? <Spinner className="size-4" /> : null // TODO: Add google icon here
-                    }
+                    <FaGithub size={20} />
                     Continue with Github
                   </Button>
 
@@ -114,9 +113,7 @@ export function RegisterForm() {
                     type="button"
                     disabled={isPending}
                   >
-                    {
-                      isPending ? <Spinner className="size-4" /> : null // TODO: Add google icon here
-                    }
+                    <FaGoogle size={20} />
                     Continue with Google
                   </Button>
                 </div>
