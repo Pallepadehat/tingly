@@ -6,14 +6,14 @@ import Image from "next/image";
 import { TextEffect } from "@/components/ui/text-effect";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 import type { Transition, Variants } from "motion/react";
-import StatsSection from "@/components/stats-4";
-import ContentSection from "@/components/content-1";
-import FeaturesSection from "@/components/features-8";
-import Pricing from "@/components/pricing";
-import PricingComparator from "@/components/pricing-comparator";
-import FAQsTwo from "@/components/faqs-2";
-import CallToAction from "@/components/call-to-action";
-import FooterSection from "@/components/footer";
+import StatsSection from "@/components/landingpage/stats-4";
+import ContentSection from "@/components/landingpage/content-1";
+import FeaturesSection from "@/components/landingpage/features-8";
+import Pricing from "@/components/landingpage/pricing";
+import PricingComparator from "@/components/landingpage/pricing-comparator";
+import FAQsTwo from "@/components/landingpage/faqs-2";
+import CallToAction from "@/components/landingpage/call-to-action";
+import FooterSection from "@/components/landingpage/footer";
 import { HeroHeader } from "./header";
 
 const heroPrimaryTransition: Transition = {
@@ -71,7 +71,10 @@ export default function HeroSection() {
 
           <div className="mx-auto flex min-h-[80vh] max-w-3xl flex-col items-center px-6 pb-24 pt-36 text-center md:pt-48">
             <AnimatedGroup
-              variants={{ container: heroContainerVariants, item: heroPrimaryVariants }}
+              variants={{
+                container: heroContainerVariants,
+                item: heroPrimaryVariants,
+              }}
               className="flex w-full flex-col items-center gap-6"
             >
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.2em] text-primary/80">
@@ -95,11 +98,17 @@ export default function HeroSection() {
                 as="p"
                 className="text-pretty text-lg text-muted-foreground md:text-xl"
               >
-                Tingly gives you one simple place to store photos, receipts, and values for every belonging. If something happens, you already have proof in hand.
+                Tingly gives you one simple place to store photos, receipts, and
+                values for every belonging. If something happens, you already
+                have proof in hand.
               </TextEffect>
 
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <Button asChild size="lg" className="gap-2 rounded-xl px-6 text-base md:px-7">
+                <Button
+                  asChild
+                  size="lg"
+                  className="gap-2 rounded-xl px-6 text-base md:px-7"
+                >
                   <Link href="#pricing">
                     Start for free
                     <ArrowRight className="size-4" />
@@ -116,7 +125,10 @@ export default function HeroSection() {
               </div>
 
               <AnimatedGroup
-                variants={{ container: heroContainerVariants, item: heroPrimaryVariants }}
+                variants={{
+                  container: heroContainerVariants,
+                  item: heroPrimaryVariants,
+                }}
                 className="mt-10 flex w-full flex-col items-center space-y-4"
               >
                 {heroBenefits.map((benefit) => (
@@ -127,7 +139,9 @@ export default function HeroSection() {
                     <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
                       <benefit.icon className="size-4" />
                     </span>
-                    <p className="text-base leading-relaxed text-foreground">{benefit.label}</p>
+                    <p className="text-base leading-relaxed text-foreground">
+                      {benefit.label}
+                    </p>
                   </div>
                 ))}
               </AnimatedGroup>
