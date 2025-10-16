@@ -16,7 +16,7 @@ export async function sendWaitlistConfirmationEmail(
 ) {
   try {
     const { data, error } = await resend.emails.send({
-      from: "Tingly <onboarding@tingly.app>", // Update this to your verified domain
+      from: "Tingly <onboarding@waitlist.jakobsendevelopment.dk>", // Update this to your verified domain
       to: [email],
       subject: `You're on the Tingly waitlist! 🎉`,
       react: WaitlistConfirmationEmail({ email, position }),

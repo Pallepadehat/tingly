@@ -38,7 +38,7 @@ export function WaitlistConfirmationEmail({
             <Section className="mt-[16px] text-center">
               <div className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10">
                 <Img
-                  src={`${baseUrl}/icons/logo.svg`}
+                  src={`${baseUrl}/icons/Logo.svg`}
                   width="40"
                   height="40"
                   alt="Tingly Logo"
@@ -49,11 +49,7 @@ export function WaitlistConfirmationEmail({
 
             {/* Heading */}
             <Heading className="mx-0 my-[30px] p-0 text-center text-[28px] font-bold text-zinc-900">
-              You're on the{" "}
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                Tingly
-              </span>{" "}
-              waitlist! 🎉
+              You're on the Tingly waitlist! 🎉
             </Heading>
 
             {/* Main Content */}
@@ -79,7 +75,7 @@ export function WaitlistConfirmationEmail({
               </div>
             </Section>
 
-            <Text className="text-[16px] leading-[26px] text-zinc-700">
+            <Text className="text-[16px] text-center leading-[26px] text-zinc-700">
               We'll notify you at{" "}
               <span className="font-semibold text-zinc-900">{email}</span> as
               soon as we're ready to launch. You'll be among the first to
@@ -89,7 +85,7 @@ export function WaitlistConfirmationEmail({
             {/* CTA Button */}
             <Section className="my-[32px] text-center">
               <Button
-                className="rounded-xl bg-primary px-6 py-3 text-center text-[14px] font-semibold text-white no-underline"
+                className="rounded-xl bg-blue-500 px-6 py-3 text-center text-[14px] font-semibold text-white no-underline"
                 href={baseUrl}
               >
                 Visit Tingly
@@ -118,23 +114,23 @@ export function WaitlistConfirmationEmail({
             {/* Footer */}
             <Hr className="mx-0 my-[26px] w-full border border-zinc-200" />
 
-            <Text className="text-[12px] leading-[20px] text-zinc-500">
-              This confirmation was sent to{" "}
-              <span className="text-zinc-700">{email}</span> because you joined
-              the Tingly waitlist. If you didn't sign up for this, you can
-              safely ignore this email.
+            <Text className="text-[12px] leading-[20px] text-zinc-500 text-center">
+              This confirmation was sent to
+              <span className="text-zinc-700 pl-1 ">{email}</span> because you
+              joined the Tingly waitlist. If you didn't sign up for this, you
+              can safely ignore this email.
             </Text>
 
             {/* Security Badge */}
             <Section className="mt-[24px]">
               <div className="flex items-center justify-center gap-4 text-center">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary"></span>
-                  Private Beta
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+                  Closed Beta
                 </span>
                 <span className="text-zinc-300">•</span>
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-zinc-500">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary"></span>
+                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-blue-500"></span>
                   Secure by Design
                 </span>
               </div>
