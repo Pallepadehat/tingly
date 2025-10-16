@@ -172,6 +172,57 @@ exports.Prisma.WaitlistScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.OrganizationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  createdById: 'createdById',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.OrganizationAddressScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  label: 'label',
+  streetLine1: 'streetLine1',
+  streetLine2: 'streetLine2',
+  city: 'city',
+  state: 'state',
+  postalCode: 'postalCode',
+  country: 'country',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.RoomScalarFieldEnum = {
+  id: 'id',
+  organizationId: 'organizationId',
+  addressId: 'addressId',
+  name: 'name',
+  description: 'description',
+  floor: 'floor',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ItemScalarFieldEnum = {
+  id: 'id',
+  roomId: 'roomId',
+  name: 'name',
+  description: 'description',
+  category: 'category',
+  quantity: 'quantity',
+  acquiredAt: 'acquiredAt',
+  purchasePrice: 'purchasePrice',
+  estimatedValue: 'estimatedValue',
+  currency: 'currency',
+  serialNumber: 'serialNumber',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -193,7 +244,11 @@ exports.Prisma.ModelName = {
   Session: 'Session',
   Account: 'Account',
   Verification: 'Verification',
-  Waitlist: 'Waitlist'
+  Waitlist: 'Waitlist',
+  Organization: 'Organization',
+  OrganizationAddress: 'OrganizationAddress',
+  Room: 'Room',
+  Item: 'Item'
 };
 
 /**
