@@ -4,7 +4,6 @@
   <img src="https://github.com/Pallepadehat/tingly/blob/main/public/repoImages/landingpage.png" alt="Tingly Landing Page" width="100%" style="border-radius: 12px;"/>
 </p>
 
-
 ![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Pallepadehat/tingly?utm_source=oss&utm_medium=github&utm_campaign=Pallepadehat%2Ftingly&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
 
 ---
@@ -30,6 +29,7 @@ It’s where design precision meets functional simplicity — an open-source fou
 | ORM         | **Prisma ORM**                   |
 | Database    | **Neon (PostgreSQL serverless)** |
 | Auth        | **Better Auth**                  |
+| Emails      | **Resend + React Email**         |
 | Payments    | **Polar**                        |
 | Monitoring  | **Sentry**                       |
 | Code Review | **CodeRabbit**                   |
@@ -39,6 +39,7 @@ It’s where design precision meets functional simplicity — an open-source fou
 
 ## Core Features
 
+- **Waitlist System** - Email collection with automated confirmation emails
 - Organize belongings by room, category, or type
 - Upload photos, invoices, or receipts for proof of ownership
 - Automatic cloud backup and metadata extraction
